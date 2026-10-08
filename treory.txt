@@ -1,0 +1,52 @@
+1. from math import * (задание 11)
+1.1 floor - окркугление вниз
+1.2 ceil - окркугление вверх
+1.3 log2 - логарифм по основанию 2
+1.4 sqrt - корень
+
+2. from itertools import * (задание 8)
+2.1 product - если буквы в слове повторяются 
+2.2 permutations - если буквы не повторяются
+
+3. from string import * (задание 14)
+3.1 printable[:(номер системы счисления)] - возвращает алфавит системы счисления
+
+4. from fnmatch import fnmatch (задание 25)
+4.1 fnmatch(str(число), 'маска числа')
+
+5. from turtle import *
+5.1 шаблонное начало кода
+tracer(0) - всегда 
+screensize(2000, 2000) - размер экрана
+r = 20
+up() - обязательно перед функцией сетки
+for x in range(-30, 30):
+    for y in range(-30, 30):
+        goto(x * r, y * r)
+        dot('red')
+update() - всегда в конце кода
+
+5.2 fd(число * r) - вперед, bk(число * r) - назад , rt(число) - направо, lt(число) - налево
+
+6. Полезные функции
+6.1 функция центра кластера (задание 27)
+def centre(cl):
+    m = []
+    for p in cl:
+        s = sum(dist(p, p1) for p1 in cl)
+        m.append([s, p])
+    return min(m)[1]
+6.2 функция простых делителей (задание 25)
+def p(x):
+    for i in range(2, int(x ** 0.5) + 1):
+        if x % i == 0:
+            return [i] + p(x // i)
+    return [x]
+6.3 функция поиска всех делителей (задание 25)
+def div(x):
+    h = []
+    for i in range(1, int(x ** 0.5) + 1):
+        if x % i == 0:
+            h.append(i)
+            h.append(x // i)
+    return h
